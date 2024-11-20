@@ -1,4 +1,7 @@
 soong_namespace {
+    "vendor/motorola/sm8475-common",
+    "vendor/motorola/eqs",
+    "vendor/motorola/IfaaService",
 }
 
 android_app_import {

@@ -1,5 +1,5 @@
 PRODUCT_SOONG_NAMESPACES += \
-    vendor/motorola/IFAAService
+    vendor/motorola/IfaaService
 
 PRODUCT_COPY_FILES += \
     vendor/motorola/IfaaService/proprietary/vendor/bin/hw/vendor.zui.hardware.ifaa@1.0-service:$(TARGET_COPY_OUT_VENDOR)/bin/hw/vendor.zui.hardware.ifaa@1.0-service \

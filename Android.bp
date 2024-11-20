@@ -1,0 +1,13 @@
+soong_namespace {
+}
+
+android_app_import {
+	name: "IfaaService",
+	owner: "motorola",
+	apk: "proprietary/system_ext/app/IfaaService/IfaaService.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	system_ext_specific: true,
+}

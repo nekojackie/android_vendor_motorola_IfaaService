@@ -13,63 +13,64 @@ android_app_import {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.zui.hardware.ifaa@1.0-service",
+    name: "vendor.zui.hardware.ifaa@1.0",
     owner: "motorola",
     strip: {
         none: true,
     },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/vendor.zui.hardware.ifaa@1.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_binary {
+    name: "vendor.zui.hardware.ifaa@1.0-service",
+    owner: "motorola",
     target: {
         android_arm64: {
             srcs: [
                 "proprietary/vendor/bin/hw/vendor.zui.hardware.ifaa@1.0-service",
             ],
             shared_libs: [
-	        "liblog",
-		"libcutils",
-		"libbase",
-		"libutils",
-		"libhardware",
-		"libhidlbase",
-		"libhidltransport",
-		"libQSEEComAPI.so",
-		"vendor.zui.hardware.ifaa@1.0.so",
-		"libc++",
-		"libc",
-		"libm",
-		"libdl",
+                "liblog",
+                "libcutils",
+                "libbase",
+                "libutils",
+                "libhardware",
+                "libhidlbase",
+                "libhidltransport",
+                "libQSEEComAPI",
+                "vendor.zui.hardware.ifaa@1.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
             ],
         },
     },
     compile_multilib: "64",
-    relative_install_path: "bin",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "vendor.zui.hardware.ifaa@1.0.so",
-    owner: "motorola",
     strip: {
         none: true,
     },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/lib64/vendor.zui.hardware.ifaa@1.0.so",
-            ],
-            shared_libs: [
-	      "libhidlbase",
-	      "liblog",
-	      "libutils",
-	      "libcutils",
-	      "libc++",
-	      "libc",
-	      "libm",
-	      "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
     prefer: true,
+    relative_install_path: "hw",
     soc_specific: true,
 }
+

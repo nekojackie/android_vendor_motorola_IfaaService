@@ -1,5 +1,5 @@
 PRODUCT_SOONG_NAMESPACES += \
-    vendor/motorola/IfaaService
+    vendor/motorola/IfaaService \
     vendor/motorola/sm8475-common \
     vendor/motorola/eqs \
 

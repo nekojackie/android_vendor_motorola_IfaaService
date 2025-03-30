@@ -1,0 +1,261 @@
+//
+// Automatically generated file. DO NOT MODIFY
+//
+
+soong_namespace {
+    imports: [
+        "device/motorola/sm8475-common",
+        "hardware/qcom-caf/sm8450",
+        "hardware/qcom-caf/wlan",
+        "vendor/qcom/opensource/commonsys/display",
+        "vendor/qcom/opensource/dataservices",
+    ],
+}
+
+cc_prebuilt_library_shared {
+    name: "lib_ifaa_ca",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/lib_ifaa_ca.so",
+            ],
+            shared_libs: [
+                "libcutils",
+                "libutils",
+                "liblog",
+                "libQSEEComAPI",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "32",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "lib_ifaa_product",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/lib_ifaa_product.so",
+            ],
+            shared_libs: [
+                "libcutils",
+                "libutils",
+                "lib_ifaa_ca",
+                "liblog",
+                "libcrypto",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "32",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libpkip",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libpkip.so",
+            ],
+            shared_libs: [
+                "libcutils",
+                "libtpa",
+                "libcrypto",
+                "liblog",
+                "libQSEEComAPI",
+                "liboemcrypto",
+                "lib_ifaa_product",
+                "libhdcp1prov",
+                "libhdcp2p2prov",
+                "libDxHdcp",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "32",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.zui.hardware.ifaa@1.0",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/vendor.zui.hardware.ifaa@1.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+android_app_import {
+    name: "IfaaService",
+    owner: "motorola",
+    apk: "proprietary/system_ext/app/IfaaService/IfaaService.apk",
+    certificate: "platform",
+    dex_preopt: {
+        enabled: false,
+    },
+    system_ext_specific: true,
+}
+
+cc_prebuilt_binary {
+    name: "vendor.zui.hardware.ifaa@1.0-service",
+    owner: "motorola",
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/bin/hw/vendor.zui.hardware.ifaa@1.0-service",
+            ],
+            shared_libs: [
+                "liblog",
+                "libcutils",
+                "libbase",
+                "libutils",
+                "libhardware",
+                "libhidlbase",
+                "libhidltransport",
+                "libQSEEComAPI",
+                "vendor.zui.hardware.ifaa@1.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+    prefer: true,
+    relative_install_path: "hw",
+    soc_specific: true,
+}
+
+cc_prebuilt_binary {
+    name: "tcmd",
+    owner: "motorola",
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/bin/tcmd",
+            ],
+            shared_libs: [
+                "libbinder",
+                "libhidlbase",
+                "libhidltransport",
+                "libhwbinder",
+                "libhardware",
+                "libhardware_legacy",
+                "libexpat",
+                "libsqlite",
+                "libutils",
+                "libcrypto",
+                "libmedia_helper",
+                "libagmmixer",
+                "libagmclient",
+                "android.hardware.audio@7.0",
+                "android.hardware.audio.common@7.0",
+                "android.hardware.audio.common@7.0-util",
+                "libtinyalsa",
+                "libsotertool",
+                "libtpa",
+                "libpkip",
+                "libcutils",
+                "liblog_vendor",
+                "libtcmd_diag",
+                "libstfactory-vendor",
+                "com.motorola.hardware.biometric.fingerprint@1.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "32",
+    strip: {
+        none: true,
+    },
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_binary {
+    name: "tcmdhelp",
+    owner: "motorola",
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/bin/tcmdhelp",
+            ],
+            shared_libs: [
+                "libcrypto",
+                "libcutils",
+                "libsqlite",
+                "libbinder",
+                "libutils",
+                "liblog",
+                "libhwbinder",
+                "libhidlbase",
+                "libbinder_ndk",
+                "libhidltransport",
+                "motorola.hardware.tcmd@1.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "32",
+    strip: {
+        none: true,
+    },
+    prefer: true,
+    soc_specific: true,
+}
